@@ -1,0 +1,5 @@
+numpy
+opensearch-py
+streamlit
+regex
+python-dotenv
