@@ -2,7 +2,7 @@
 Repository to mantain data from my tcc project
 Reporitório para manter os dados do meu projeto de TCC
 
-INTERFACE_IP=[35.173.203.107:8501](http://35.173.203.107:8501/)
+INTERFACE_IP=[54.224.27.138:8501](http://54.224.27.138:8501/)
 
 OPENSEARCH_HOST=3.92.43.154
 
