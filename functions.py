@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv, dotenv_values
 from utils.utils import get_list
 
-# get env variables
+# get environment variables to use throughout the code
 load_dotenv()
 env_dict = dotenv_values(".env")
 OPENSEARCH_HOST = env_dict['OPENSEARCH_HOST']
@@ -32,6 +32,7 @@ client = OpenSearch(
     verify_certs = False,
 )
 
+# function to get a vector of the K matrix to make a vector to insert in the A matrix
 def get_a_vector(user_protein_list, client):
     
     # retrieve lines from given protein id
@@ -61,7 +62,7 @@ def get_a_vector(user_protein_list, client):
     bin_array_ordered = np.array([bin_array_ordered])
     return bin_array_ordered
 
-
+# function to get a vector of the K matrix to make a vector to insert in the B matrix
 def get_b_vector(user_protein_list, client):
     ##### B matrix
     
