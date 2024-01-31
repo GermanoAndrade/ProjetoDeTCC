@@ -2,13 +2,19 @@ import os
 from dotenv import dotenv_values
 import numpy as np
 
+# load environment variables
 env_dict = dotenv_values(".env")
 DATA_PATH = env_dict['DATA_PATH']
 
+# get elements of a list in a file and store it in a list
 def get_list(filename, datatype=""):
+    # openning file
     file = open(filename, "r", encoding="UTF-8")
+    # read elements stored in the file
     values = file.read().split("\n")[:-1]
+    # closing file
     file.close()
+    # converting elements to int if they are desired to be int
     if datatype == "int":
         for i in range(len(values)):
             values[i] = int(values[i])
