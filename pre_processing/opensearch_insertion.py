@@ -12,6 +12,7 @@ DATA_PATH = os.getenv('DATA_PATH')
 
 # create function to get generic list with values from a given filename
 def get_list(filename):
+    # reading files
     file = open(DATA_PATH+filename, "r", encoding="UTF-8")
     values = file.read().split("\n")[:-1]
     file.close()
@@ -70,17 +71,21 @@ for index_name in index_names:
 # insert lines of A
 batch = []
 for Aid in range(A.shape[0]):
+    # creating document to be inserted
     document = {
         'line': A[Aid,:]
     }
+    # filling values to add to the batch to be inserted
     each_val = {"_op_type": "index", 
                 "_index": index_names[0], 
                 "_id": drugs[Aid], 
                 "_source": document}
     batch.append(each_val)
+    # insert whenever batch reach 10 elements
     if len(batch) == 10 :
         success, failed = bulk(client, batch, index=index_names[0], raise_on_error=True)
         batch.clear()
+# at the end, if batch still have some element, insert it
 if len(batch) > 0:
     success, failed = bulk(client, batch, index=index_names[0], raise_on_error=True)
     batch.clear()
@@ -88,17 +93,21 @@ if len(batch) > 0:
 # insert lines of B
 batch = []
 for Bid in range(B.shape[0]):
+    # creating document to be inserted
     document = {
         'line': B[Bid,:]
     }
+    # filling values to add to the batch to be inserted
     each_val = {"_op_type": "index", 
                 "_index": index_names[1], 
                 "_id": viruses[Bid], 
                 "_source": document}
     batch.append(each_val)
+    # insert whenever batch reach 10 elements
     if len(batch) == 10 :
         success, failed = bulk(client, batch, index=index_names[1], raise_on_error=True)
         batch.clear()
+# at the end, if batch still have some element, insert it
 if len(batch) > 0:
     success, failed = bulk(client, batch, index=index_names[1], raise_on_error=True)
     batch.clear()    
@@ -106,17 +115,21 @@ if len(batch) > 0:
 # insert lines of K
 batch = []
 for Kid in range(K.shape[0]):
+    # creating document to be inserted
     document = {
         'line': K[Kid,:]
     }
+    # filling values to add to the batch to be inserted
     each_val = {"_op_type": "index", 
                 "_index": index_names[2], 
                 "_id": proteins_kernel[Kid], 
                 "_source": document}
     batch.append(each_val)
+    # insert whenever batch reach 10 elements
     if len(batch) == 10 :
         success, failed = bulk(client, batch, index=index_names[2], raise_on_error=True)
         batch.clear()
+# at the end, if batch still have some element, insert it
 if len(batch) > 0:
     success, failed = bulk(client, batch, index=index_names[2], raise_on_error=True)
     batch.clear()
