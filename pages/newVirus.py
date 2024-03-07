@@ -17,7 +17,7 @@ def app():
             st.info("Para mais informações, visite a aba \"Sobre\".", icon="ℹ")
     
     # subtitle
-    st.subheader("Insira as proteínas alvo das drogas:")
+    st.subheader("Insira as proteínas do hospedeiro:")
     
     # creating columns to receive input from the user
     # first, the virus proteins
