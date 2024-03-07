@@ -69,7 +69,7 @@ def app():
         genes = [i.replace("\n", "").replace("\r", "").strip() for i in genes]
     
     # genes expressions
-    st.subheader("Insira o perfil de expressão gênica das infecções virais para os genes testados, separado por vírgula\n(1 para genes superexpressos, -1 para genes subexpressos e 0 para genes sem diferença de expressão):")
+    st.subheader("Insira o perfil de expressão gênica das infecções virais para os genes testados, separado por vírgula:\n(1 para genes superexpressos, -1 para genes subexpressos e 0 para genes sem diferença de expressão)")
     cols1, cols2 = st.columns(2)
     # left side will give the option to the user to put manually the proteins
     with cols1:
