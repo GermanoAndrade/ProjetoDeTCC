@@ -74,7 +74,7 @@ def app():
     # left side will give the option to the user to put manually the proteins
     with cols1:
         expressions_list = st.text_area(
-        "Insira a expressão dos genes separadas por vírgula",
+        "Insira o perfil de expressão gênica das infecções virais para os genes testados, separado por vírgula\n(1 para genes superexpressos, -1 para genes subexpressos e 0 para genes sem diferença de expressão)",
         placeholder="expressao1, expressao2,...",
         )
     # right side will give the option to the user to upload a file with the proteins
